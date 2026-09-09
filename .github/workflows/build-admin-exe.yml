@@ -8,6 +8,7 @@ permissions:
 
 jobs:
   build-windows:
+    name: Gerar instalador EXE
     runs-on: windows-latest
     steps:
       - name: Baixar código
@@ -17,9 +18,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Instalar dependências
-        run: npm install
+        run: npm ci
 
       - name: Gerar instalador EXE
         env:
